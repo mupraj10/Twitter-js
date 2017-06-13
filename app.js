@@ -1,6 +1,8 @@
 const express = require( 'express' );
 const app = express(); // creates an instance of an express application
 const nunjucks = require('nunjucks');
+const routes = require('./routes');
+
 
 var template = {
     title: "Our page",
@@ -14,28 +16,20 @@ app.listen(3000, function(){
     console.log("server listening");
 });
 
-
-app.use(function (req, res, next) {
-    console.log(req.method + " " + req.originalUrl);
-    next();
-    // do your logging here
-    // call `next`, or else your app will be a black hole — receiving requests but never properly responding
-})
-
-
-
-
-
+app.use('/', routes);
 
 nunjucks.configure('views', {noCache: true});
-
-// nunjucks.render('index.html', template, function(err, res) {
-//     console.log(res);
-// });
 
 app.engine('html', nunjucks.render);
 app.set('view engine', 'html');
 
+
+
+
+
+// nunjucks.render('index.html', template, function(err, res) {
+//     console.log(res);
+// });
 
 // app.get("/", function(request, response){
 //     const people = [{name: "Full",}, {name: "Stack"}, {name: "Son"}];
@@ -48,4 +42,9 @@ app.set('view engine', 'html');
 
 // app.post("/", function(request,response){
 //     response.send("Posting is working! \n");
+// });
+
+// app.use(function (req, res, next) {
+//     console.log(req.method + " " + req.originalUrl);
+//     next();
 // });

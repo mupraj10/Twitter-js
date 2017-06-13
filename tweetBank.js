@@ -36,7 +36,7 @@ for (let i = 0; i < 10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 };
 
-data.push({ friend: 'Gabriel Man',
-    content: 'Fullstack Academy is mindblowing! The instructors are just so cool. #fullstacklove #codedreams' })
+// data.push({ friend: 'Gabriel Man',
+//     content: 'Fullstack Academy is mindblowing! The instructors are just so cool. #fullstacklove #codedreams' })
 
-console.log("find working:", find("friend"));
+// console.log("find working:", find("friend"));
